@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.15.3
-Release  : 3
-URL      : https://download.kde.org/stable/plasma/5.15.3/sddm-kcm-5.15.3.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.3/sddm-kcm-5.15.3.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.3/sddm-kcm-5.15.3.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 5.15.4
+Release  : 4
+URL      : https://download.kde.org/stable/plasma/5.15.4/sddm-kcm-5.15.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.4/sddm-kcm-5.15.4.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.4/sddm-kcm-5.15.4.tar.xz.sig
+Summary  : KDE Config Module for SDDM
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: sddm-kcm-bin = %{version}-%{release}
@@ -74,23 +74,22 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.15.3
+%setup -q -n sddm-kcm-5.15.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552426080
+export SOURCE_DATE_EPOCH=1554228822
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552426080
+export SOURCE_DATE_EPOCH=1554228822
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
 cp COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/COPYING
