@@ -6,7 +6,7 @@
 #
 Name     : sddm-kcm
 Version  : 5.15.5
-Release  : 7
+Release  : 8
 URL      : https://download.kde.org/stable/plasma/5.15.5/sddm-kcm-5.15.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.15.5/sddm-kcm-5.15.5.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.15.5/sddm-kcm-5.15.5.tar.xz.sig
@@ -81,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557344657
+export SOURCE_DATE_EPOCH=1557374564
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -96,7 +96,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557344657
+export SOURCE_DATE_EPOCH=1557374564
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
 cp COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/COPYING
