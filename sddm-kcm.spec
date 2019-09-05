@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.16.4
-Release  : 13
-URL      : https://download.kde.org/stable/plasma/5.16.4/sddm-kcm-5.16.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.4/sddm-kcm-5.16.4.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.4/sddm-kcm-5.16.4.tar.xz.sig
+Version  : 5.16.5
+Release  : 14
+URL      : https://download.kde.org/stable/plasma/5.16.5/sddm-kcm-5.16.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.5/sddm-kcm-5.16.5.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.16.5/sddm-kcm-5.16.5.tar.xz.sig
 Summary  : KDE Config Module for SDDM
 Group    : Development/Tools
 License  : GPL-2.0
@@ -74,16 +74,17 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.16.4
+%setup -q -n sddm-kcm-5.16.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564517761
+export SOURCE_DATE_EPOCH=1567652350
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -97,7 +98,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1564517761
+export SOURCE_DATE_EPOCH=1567652350
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
 cp COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/COPYING
