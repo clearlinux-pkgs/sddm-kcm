@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.16.5
-Release  : 14
-URL      : https://download.kde.org/stable/plasma/5.16.5/sddm-kcm-5.16.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.5/sddm-kcm-5.16.5.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.5/sddm-kcm-5.16.5.tar.xz.sig
+Version  : 5.17.0
+Release  : 15
+URL      : https://download.kde.org/stable/plasma/5.17.0/sddm-kcm-5.17.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.0/sddm-kcm-5.17.0.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.0/sddm-kcm-5.17.0.tar.xz.sig
 Summary  : KDE Config Module for SDDM
 Group    : Development/Tools
 License  : GPL-2.0
@@ -20,7 +20,6 @@ Requires: sddm-kcm-license = %{version}-%{release}
 Requires: sddm-kcm-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -74,14 +73,14 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.16.5
+%setup -q -n sddm-kcm-5.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567652350
+export SOURCE_DATE_EPOCH=1571168968
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -94,14 +93,14 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567652350
+export SOURCE_DATE_EPOCH=1571168968
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
-cp COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/COPYING
+cp %{_builddir}/sddm-kcm-5.17.0/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
 pushd clr-build
 %make_install
 popd
@@ -130,7 +129,7 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/sddm-kcm/COPYING
+/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
 
 %files locales -f kcm_sddm.lang
 %defattr(-,root,root,-)
