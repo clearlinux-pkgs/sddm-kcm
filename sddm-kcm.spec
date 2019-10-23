@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.17.0
-Release  : 15
-URL      : https://download.kde.org/stable/plasma/5.17.0/sddm-kcm-5.17.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.17.0/sddm-kcm-5.17.0.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.17.0/sddm-kcm-5.17.0.tar.xz.sig
+Version  : 5.17.1
+Release  : 16
+URL      : https://download.kde.org/stable/plasma/5.17.1/sddm-kcm-5.17.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.1/sddm-kcm-5.17.1.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.1/sddm-kcm-5.17.1.tar.xz.sig
 Summary  : KDE Config Module for SDDM
 Group    : Development/Tools
 License  : GPL-2.0
@@ -21,6 +21,7 @@ Requires: sddm-kcm-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : util-linux
 
 %description
 mkdir build
@@ -73,14 +74,14 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.17.0
+%setup -q -n sddm-kcm-5.17.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571168968
+export SOURCE_DATE_EPOCH=1571838385
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -97,10 +98,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1571168968
+export SOURCE_DATE_EPOCH=1571838385
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
-cp %{_builddir}/sddm-kcm-5.17.0/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/sddm-kcm-5.17.1/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
 pushd clr-build
 %make_install
 popd
