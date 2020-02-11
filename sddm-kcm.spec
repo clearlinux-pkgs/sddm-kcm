@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.17.5
-Release  : 20
-URL      : https://download.kde.org/stable/plasma/5.17.5/sddm-kcm-5.17.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.17.5/sddm-kcm-5.17.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.17.5/sddm-kcm-5.17.5.tar.xz.sig
+Version  : 5.18.0
+Release  : 21
+URL      : https://download.kde.org/stable/plasma/5.18.0/sddm-kcm-5.18.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.0/sddm-kcm-5.18.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.0/sddm-kcm-5.18.0.tar.xz.sig
 Summary  : KDE Config Module for SDDM
 Group    : Development/Tools
 License  : GPL-2.0
@@ -23,10 +23,8 @@ BuildRequires : buildreq-kde
 BuildRequires : qtbase-dev mesa-dev
 
 %description
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix`
-make install
+# sddm-kcm - Login Screen (SDDM) System Settings Module
+`sddm-kcm` is a KConfig Module (KCM) that integrates itself into KDE's System Settings and serves the purpose of configuring the Simple Desktop Display Manager (SDDM) - the recommended display manager for KDE Plasma.
 
 %package bin
 Summary: bin components for the sddm-kcm package.
@@ -73,15 +71,15 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.17.5
-cd %{_builddir}/sddm-kcm-5.17.5
+%setup -q -n sddm-kcm-5.18.0
+cd %{_builddir}/sddm-kcm-5.18.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578435985
+export SOURCE_DATE_EPOCH=1581450853
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -98,10 +96,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1578435985
+export SOURCE_DATE_EPOCH=1581450853
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
-cp %{_builddir}/sddm-kcm-5.17.5/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/sddm-kcm-5.18.0/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
 pushd clr-build
 %make_install
 popd
