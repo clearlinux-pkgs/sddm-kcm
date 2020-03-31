@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.18.3
-Release  : 24
-URL      : https://download.kde.org/stable/plasma/5.18.3/sddm-kcm-5.18.3.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.3/sddm-kcm-5.18.3.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.3/sddm-kcm-5.18.3.tar.xz.sig
+Version  : 5.18.4.1
+Release  : 25
+URL      : https://download.kde.org/stable/plasma/5.18.4/sddm-kcm-5.18.4.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.4/sddm-kcm-5.18.4.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.4/sddm-kcm-5.18.4.1.tar.xz.sig
 Summary  : KDE Config Module for SDDM
 Group    : Development/Tools
 License  : GPL-2.0
@@ -71,15 +71,15 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.18.3
-cd %{_builddir}/sddm-kcm-5.18.3
+%setup -q -n sddm-kcm-5.18.4.1
+cd %{_builddir}/sddm-kcm-5.18.4.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583869527
+export SOURCE_DATE_EPOCH=1585697716
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -96,10 +96,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583869527
+export SOURCE_DATE_EPOCH=1585697716
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
-cp %{_builddir}/sddm-kcm-5.18.3/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/sddm-kcm-5.18.4.1/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
 pushd clr-build
 %make_install
 popd
