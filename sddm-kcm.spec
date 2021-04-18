@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.20.5
-Release  : 36
-URL      : https://download.kde.org/stable/plasma/5.20.5/sddm-kcm-5.20.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.20.5/sddm-kcm-5.20.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.20.5/sddm-kcm-5.20.5.tar.xz.sig
+Version  : 5.21.4
+Release  : 37
+URL      : https://download.kde.org/stable/plasma/5.21.4/sddm-kcm-5.21.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.21.4/sddm-kcm-5.21.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.21.4/sddm-kcm-5.21.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -73,15 +73,15 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.20.5
-cd %{_builddir}/sddm-kcm-5.20.5
+%setup -q -n sddm-kcm-5.21.4
+cd %{_builddir}/sddm-kcm-5.21.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1609884111
+export SOURCE_DATE_EPOCH=1618705235
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -97,10 +97,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1609884111
+export SOURCE_DATE_EPOCH=1618705235
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
-cp %{_builddir}/sddm-kcm-5.20.5/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/sddm-kcm-5.21.4/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
 pushd clr-build
 %make_install
 popd
@@ -119,13 +119,17 @@ popd
 /usr/share/dbus-1/system-services/org.kde.kcontrol.kcmsddm.service
 /usr/share/dbus-1/system.d/org.kde.kcontrol.kcmsddm.conf
 /usr/share/knsrcfiles/sddmtheme.knsrc
+/usr/share/kpackage/kcms/kcm_sddm/contents/ui/Advanced.qml
+/usr/share/kpackage/kcms/kcm_sddm/contents/ui/DetailsDialog.qml
+/usr/share/kpackage/kcms/kcm_sddm/contents/ui/main.qml
+/usr/share/kpackage/kcms/kcm_sddm/metadata.desktop
+/usr/share/kpackage/kcms/kcm_sddm/metadata.json
 /usr/share/kservices5/kcm_sddm.desktop
 /usr/share/polkit-1/actions/org.kde.kcontrol.kcmsddm.policy
-/usr/share/sddm-kcm/main.qml
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/qt5/plugins/kcm_sddm.so
+/usr/lib64/qt5/plugins/kcms/kcm_sddm.so
 
 %files license
 %defattr(0644,root,root,0755)
