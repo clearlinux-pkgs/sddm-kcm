@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.24.5
-Release  : 53
-URL      : https://download.kde.org/stable/plasma/5.24.5/sddm-kcm-5.24.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.24.5/sddm-kcm-5.24.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.24.5/sddm-kcm-5.24.5.tar.xz.sig
+Version  : 5.25.0
+Release  : 54
+URL      : https://download.kde.org/stable/plasma/5.25.0/sddm-kcm-5.25.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.25.0/sddm-kcm-5.25.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.25.0/sddm-kcm-5.25.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 GPL-3.0
@@ -22,7 +22,6 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
 BuildRequires : ki18n-dev
-BuildRequires : qtbase-dev mesa-dev
 
 %description
 # sddm-kcm - Login Screen (SDDM) System Settings Module
@@ -73,15 +72,15 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.24.5
-cd %{_builddir}/sddm-kcm-5.24.5
+%setup -q -n sddm-kcm-5.25.0
+cd %{_builddir}/sddm-kcm-5.25.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1651620174
+export SOURCE_DATE_EPOCH=1655411415
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -97,15 +96,15 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1651620174
+export SOURCE_DATE_EPOCH=1655411415
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
-cp %{_builddir}/sddm-kcm-5.24.5/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/sddm-kcm-5.24.5/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/sddm-kcm-5.24.5/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/sddm-kcm-5.24.5/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/sddm-kcm-5.24.5/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/sddm-kcm-5.24.5/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/sddm-kcm-5.25.0/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/sddm-kcm-5.25.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/sddm-kcm-5.25.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/sddm-kcm-5.25.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/sddm-kcm-5.25.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/sddm-kcm-5.25.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/7d9831e05094ce723947d729c2a46a09d6e90275
 pushd clr-build
 %make_install
 popd
