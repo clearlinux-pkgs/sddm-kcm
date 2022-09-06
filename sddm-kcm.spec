@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.25.4
-Release  : 58
-URL      : https://download.kde.org/stable/plasma/5.25.4/sddm-kcm-5.25.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.4/sddm-kcm-5.25.4.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.4/sddm-kcm-5.25.4.tar.xz.sig
+Version  : 5.25.5
+Release  : 59
+URL      : https://download.kde.org/stable/plasma/5.25.5/sddm-kcm-5.25.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.25.5/sddm-kcm-5.25.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.25.5/sddm-kcm-5.25.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 GPL-3.0
@@ -72,15 +72,15 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.25.4
-cd %{_builddir}/sddm-kcm-5.25.4
+%setup -q -n sddm-kcm-5.25.5
+cd %{_builddir}/sddm-kcm-5.25.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1659710927
+export SOURCE_DATE_EPOCH=1662501665
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -96,15 +96,15 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1659710927
+export SOURCE_DATE_EPOCH=1662501665
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
-cp %{_builddir}/sddm-kcm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/sddm-kcm-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/sddm-kcm-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/sddm-kcm-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/sddm-kcm-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/sddm-kcm-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/sddm-kcm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c || :
+cp %{_builddir}/sddm-kcm-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
+cp %{_builddir}/sddm-kcm-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
+cp %{_builddir}/sddm-kcm-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f || :
+cp %{_builddir}/sddm-kcm-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/7d9831e05094ce723947d729c2a46a09d6e90275 || :
+cp %{_builddir}/sddm-kcm-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/sddm-kcm/7d9831e05094ce723947d729c2a46a09d6e90275 || :
 pushd clr-build
 %make_install
 popd
