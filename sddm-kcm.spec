@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : sddm-kcm
-Version  : 5.27.0
-Release  : 67
-URL      : https://download.kde.org/stable/plasma/5.27.0/sddm-kcm-5.27.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.27.0/sddm-kcm-5.27.0.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.27.0/sddm-kcm-5.27.0.tar.xz.sig
+Version  : 5.27.1
+Release  : 68
+URL      : https://download.kde.org/stable/plasma/5.27.1/sddm-kcm-5.27.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.1/sddm-kcm-5.27.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.1/sddm-kcm-5.27.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0 GPL-3.0
@@ -21,8 +21,6 @@ Requires: sddm-kcm-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
-BuildRequires : kio-dev
-BuildRequires : pkgconfig(x11)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -76,15 +74,15 @@ locales components for the sddm-kcm package.
 
 
 %prep
-%setup -q -n sddm-kcm-5.27.0
-cd %{_builddir}/sddm-kcm-5.27.0
+%setup -q -n sddm-kcm-5.27.1
+cd %{_builddir}/sddm-kcm-5.27.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676871659
+export SOURCE_DATE_EPOCH=1677184361
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -100,7 +98,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1676871659
+export SOURCE_DATE_EPOCH=1677184361
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sddm-kcm
 cp %{_builddir}/sddm-kcm-%{version}/COPYING %{buildroot}/usr/share/package-licenses/sddm-kcm/4cc77b90af91e615a64ae04893fdffa7939db84c || :
