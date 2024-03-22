@@ -9,7 +9,7 @@
 #
 Name     : sddm-kcm
 Version  : 6.0.2
-Release  : 81
+Release  : 82
 URL      : https://download.kde.org/stable/plasma/6.0.2/sddm-kcm-6.0.2.tar.xz
 Source0  : https://download.kde.org/stable/plasma/6.0.2/sddm-kcm-6.0.2.tar.xz
 Source1  : https://download.kde.org/stable/plasma/6.0.2/sddm-kcm-6.0.2.tar.xz.sig
